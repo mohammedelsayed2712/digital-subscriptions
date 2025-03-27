@@ -16,7 +16,7 @@
                         <div class="text-center flex-grow-1 pt-3 px-lg-4">
                             <h3 class="fs-6 fw-semibold text-dark">{{ $plan->name }}</h3>
                             <p class="mt-3 d-flex align-items-center justify-content-center">
-                                <span class="display-5 fw-bold text-dark">{{ $plan->price }}</span>
+                                <span class="display-5 fw-bold text-dark">{{ $plan->price() }}</span>
                                 <span class="ms-2 text-muted fs-6">/{{ $plan->interval }}</span>
                             </p>
                             <a href="#" class="btn btn-primary mt-3 w-50">

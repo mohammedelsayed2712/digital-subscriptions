@@ -33,7 +33,7 @@ class StripePlansCommand extends Command
             Plan::updateOrCreate([
                 'name'            => $plan->name,
                 'slug'            => str_replace(' ', '-', strtolower($plan->name)),
-                'price'           => $price->unit_amount / 100,
+                'price'           => $price->unit_amount,
                 'interval'        => $price->recurring->interval,
                 'stripe_price_id' => $price->id,
             ]);
