@@ -12,8 +12,7 @@
                     @if (request('message'))
                     <div class="alert alert-success">{{ request('message') }}</div>
                     @endif
-
-                    Home Page Here
+                    Home Page Here!
                 </div>
             </div>
         </div>
