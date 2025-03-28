@@ -13,4 +13,9 @@ class CheckoutController extends Controller
             'cancel_url'  => route('plans', ['message' => 'Payment Cancel!']),
         ]);
     }
+
+    public function index2(Plan $plan)
+    {
+        return view('checkout.payment-method', get_defined_vars());
+    }
 }
