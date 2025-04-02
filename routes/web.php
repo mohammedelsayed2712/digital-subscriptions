@@ -12,8 +12,8 @@ Route::get('/', function () {
 Route::get('/plans', [PlanController::class, 'index'])->name('plans');
 
 // Checkout
-// Route::get('/checkout/{plan:slug}', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout');
-Route::get('/checkout/{plan:slug}', [CheckoutController::class, 'index2'])->middleware('auth')->name('checkout');
+Route::get('/checkout/{plan:slug}', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout');
+// Route::get('/checkout/{plan:slug}', [CheckoutController::class, 'index2'])->middleware('auth')->name('checkout');
 Route::post('/checkout/post', [CheckoutController::class, 'post'])->middleware('auth')->name('checkout.post');
 
 Route::get('/dashboard', function () {
