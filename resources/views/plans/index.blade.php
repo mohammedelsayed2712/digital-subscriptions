@@ -19,9 +19,10 @@
                                 <span class="display-5 fw-bold text-dark">{{ $plan->price() }}</span>
                                 <span class="ms-2 text-muted fs-6">/{{ $plan->interval }}</span>
                             </p>
-                            <a href="{{ route('checkout', $plan) }}" class="btn btn-primary mt-3 w-50">
-                                Buy plan
-                            </a>
+                            {{-- <a href="{{ route('checkout.post', $plan) }}" class="btn btn-primary mt-3 w-50"> --}}
+                                <a href="{{ route('checkout', $plan) }}" class="btn btn-primary mt-3 w-50">
+                                    Buy plan
+                                </a>
                         </div>
                         @endforeach
                         @endif

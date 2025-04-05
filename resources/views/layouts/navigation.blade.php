@@ -26,6 +26,15 @@
                     <x-nav-link :href="route('plans')" :active="request()->routeIs('plans')">
                         {{ __('Plans') }}
                     </x-nav-link>
+
+                    {{-- members Link --}}
+                    {{-- @if (Auth::user()->subscribed($type = 'semi-annual')) --}}
+                    {{-- @if (Auth::user()->subscribedToProduct("prod_S1LUV2ZmMoOxnN", $type = 'quarterly')) --}}
+                    @if (Auth::user()->onProduct("prod_S1LUV2ZmMoOxnN"))
+                    <x-nav-link :href="route('members')" :active="request()->routeIs('members')">
+                        {{ __('Members Area') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -94,6 +103,7 @@
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
+
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
