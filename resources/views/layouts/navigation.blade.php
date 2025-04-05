@@ -28,9 +28,14 @@
                     </x-nav-link>
 
                     {{-- members Link --}}
-                    {{-- @if (Auth::user()->subscribed($type = 'semi-annual')) --}}
+
                     {{-- @if (Auth::user()->subscribedToProduct("prod_S1LUV2ZmMoOxnN", $type = 'quarterly')) --}}
-                    @if (Auth::user()->onProduct("prod_S1LUV2ZmMoOxnN"))
+                    {{-- @if (Auth::user()->onProduct("prod_S1LUV2ZmMoOxnN")) --}}
+                    {{-- @if (Auth::user()->subscribedToPrice('price_1R7InMIyVr3GOgScXNJVpUPf', $type = 'quarterly'))
+                    --}}
+                    {{-- @if (Auth::user()->onPrice('price_1R7InMIyVr3GOgScXNJVpUPf')) --}}
+
+                    @if (Auth::user()?->subscribed($type = 'quarterly'))
                     <x-nav-link :href="route('members')" :active="request()->routeIs('members')">
                         {{ __('Members Area') }}
                     </x-nav-link>

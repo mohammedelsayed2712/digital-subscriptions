@@ -3,6 +3,7 @@
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\AccessOnlyToSubscribedUsers;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +16,7 @@ Route::get('/plans', [PlanController::class, 'index'])->name('plans');
 // Members
 Route::get('/members', function () {
     return view('members');
-})->name('members');
+})->middleware(AccessOnlyToSubscribedUsers::class)->name('members');
 
 // Checkout
 // Route::get('/checkout/{plan:slug}', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout');
