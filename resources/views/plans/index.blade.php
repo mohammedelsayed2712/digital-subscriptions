@@ -21,7 +21,7 @@
                             </p>
                             {{-- <a href="{{ route('checkout.post', $plan) }}" class="btn btn-primary mt-3 w-50"> --}}
                                 <a href="{{ route('checkout', $plan) }}" class="btn btn-primary mt-3 w-50">
-                                    Buy plan
+                                    {{ $plan->name === 'Monthly Plan' ? 'Try Now (Trial 7 Days)' : 'Buy Now' }}
                                 </a>
                         </div>
                         @endforeach

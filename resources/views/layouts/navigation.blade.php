@@ -35,7 +35,7 @@
                     --}}
                     {{-- @if (Auth::user()->onPrice('price_1R7InMIyVr3GOgScXNJVpUPf')) --}}
 
-                    @if (Auth::user()?->subscribed($type = 'quarterly'))
+                    @if (Auth::user()?->subscribed($type = 'monthly-plan'))
                     <x-nav-link :href="route('members')" :active="request()->routeIs('members')">
                         {{ __('Members Area') }}
                     </x-nav-link>

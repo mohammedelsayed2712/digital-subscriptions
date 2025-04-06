@@ -26,7 +26,11 @@ class CheckoutController extends Controller
     public function post(Request $request)
     {
         $plan         = Plan::findOrFail($request->plan_id);
-        $subscription = Auth::user()->newSubscription($plan->slug, $plan->stripe_price_id)->create($request->payment_method);
+        $query        = Auth::user()->newSubscription($plan->slug, $plan->stripe_price_id);
+        $subscription = $query->when($plan->slug === 'yearly', function () use ($query) {
+            return $query->trialDays(7);
+        })
+            ->create($request->payment_method);
         if ($subscription->stripe_status === 'active') {
             return redirect()->route('home', ['message' => 'Subscription Success!']);
         }
