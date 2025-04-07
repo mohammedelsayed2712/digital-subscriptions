@@ -40,6 +40,15 @@
                         {{ __('Members Area') }}
                     </x-nav-link>
                     @endif
+
+                    {{-- trial Link --}}
+                    {{-- @if (Auth::user()?->onTrial('monthly-plan')) --}}
+                    {{-- @if (Auth::user()?->subscription('monthly-plan')->onTrial()) --}}
+                    @if (Auth::user()?->onGenericTrial())
+                    <x-nav-link>
+                        {{ __('Trial') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
